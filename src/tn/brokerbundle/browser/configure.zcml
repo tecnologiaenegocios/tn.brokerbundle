@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="tn.brokerbundle"
+    >
+
+  <include package ="plone.app.portlets" />
+  <include package ="Products.ContentWellPortlets" />
+
+  <configure package="plone.app.portlets.browser">
+    <browser:page
+        for="plone.portlets.interfaces.ILocalPortletAssignable"
+        class="tn.brokerbundle.browser.manage.ManageContextualPortlets"
+        name="manage-portlets"
+        template="templates/manage-contextual.pt"
+        permission="plone.app.portlets.ManagePortlets"
+        layer="tn.brokerbundle.browser.interfaces.IThemeSpecific"
+        />
+  </configure>
+
+  <configure package="Products.ContentWellPortlets.browser">
+    <browser:page
+        name="manage-portletsinheader"
+        for="plone.portlets.interfaces.ILocalPortletAssignable"
+        class="tn.brokerbundle.browser.manage.ManageContextualPortlets"
+        template="templates/manageinheaderportlets.pt"
+        permission="plone.app.portlets.ManagePortlets"
+        layer="tn.brokerbundle.browser.interfaces.IThemeSpecific"
+        />       
+    <browser:page
+        name="manage-portletsabovecontent"
+        for="plone.portlets.interfaces.ILocalPortletAssignable"
+        class="tn.brokerbundle.browser.manage.ManageContextualPortlets"
+        template="templates/manageportletsabove.pt"
+        permission="plone.app.portlets.ManagePortlets"
+        layer="tn.brokerbundle.browser.interfaces.IThemeSpecific"
+        />
+    <browser:page
+        name="manage-portletsbelowcontent"
+        for="plone.portlets.interfaces.ILocalPortletAssignable"
+        class="tn.brokerbundle.browser.manage.ManageContextualPortlets"
+        template="templates/manageportletsbelow.pt"
+        permission="plone.app.portlets.ManagePortlets"
+        layer="tn.brokerbundle.browser.interfaces.IThemeSpecific"
+        />
+    <browser:page
+        name="manage-portletsfooter"
+        for="plone.portlets.interfaces.ILocalPortletAssignable"
+        class="tn.brokerbundle.browser.manage.ManageContextualPortlets"
+        template="templates/managefooterportlets.pt"
+        permission="plone.app.portlets.ManagePortlets"
+        layer="tn.brokerbundle.browser.interfaces.IThemeSpecific"
+        />
+  </configure>
+
+  <configure package="plone.app.viewletmanager">
+    <browser:page
+        for="*"
+        name="manage-viewlets"
+        class="tn.brokerbundle.browser.manage.ManageViewlets"
+        template="manage-viewlets.pt"
+        permission="cmf.ManagePortal"
+        layer="tn.brokerbundle.browser.interfaces.IThemeSpecific"
+        />
+  </configure>
+
+  <browser:resourceDirectory
+      name="tn.brokerbundle.stylesheets"
+      directory="stylesheets"
+      layer=".interfaces.IThemeSpecific"
+      />
+
+</configure>

@@ -1,0 +1,63 @@
+/* Position the personaltools at the top right corner */
+#portal-personaltools-wrapper {
+  float: right;
+  margin-left: -100%;
+}
+
+/* Fix positioning of live search results */
+#searchbox {
+  position: relative;
+}
+#LSResult {
+  z-index: 1000;
+}
+
+/* Center the searchbox vertically */
+#searchbox > form {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* These elements had their font-size set by Sunburst but must have their font
+ * size set again to match theme defaults. */
+#portal-globalnav,
+#portal-globalnav li a,
+#portal-languageselector,
+#portal-searchbox,
+#LSResult,
+#portal-breadcrumbs,
+#content .discreet,
+#sidebar .discreet,
+div.listingBar,
+dl.portalMessage,
+#edit-bar,
+span.arrowDownAlternative,
+.comment,
+div.overlay,
+#portal-personaltools,
+div.managePortletsLink,
+a.managePortletsFallback,
+#content {
+  font-size: inherit;
+}
+
+/* Sunburst's public.css assumes its reset rules are being applied in these
+ * ul's, but maybe it is not the case with the theme CSS being applied over it.
+ * So, enforce some reset.
+ * */
+#portal-personaltools ul,
+#edit-bar > ul,
+.contentActions ul {
+  list-style-type: none;
+  list-style-image: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Better .hiddenStructure */
+.hiddenStructure {
+  height: 1px;
+  margin: -1px 0 0 -1px !important;
+  position: absolute
+  width: 1px;
+}
